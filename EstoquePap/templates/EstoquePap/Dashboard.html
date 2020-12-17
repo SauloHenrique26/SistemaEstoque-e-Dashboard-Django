@@ -1,0 +1,145 @@
+﻿{% load static%}
+{%load staticfiles%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.js"></script>
+   
+  <title>Smart Storage</title>
+  
+
+  <!-- Custom fonts for this template-->
+  <link href="static/vendor/font/css/all.min.css" rel="stylesheet" type="text/css"/>
+
+
+  <!-- Page level plugin CSS-->
+  <!-----<link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">--->
+
+  <!-- Custom styles for this template-->
+  <link href="static/css/Stylesheet1.css" rel="stylesheet"/>
+    <style>
+        h1 {
+        }
+    </style>
+
+</head>
+
+<body id="page-top">
+
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+    <a class="navbar-brand mr-1" href="{%url 'index'%}">Smart Storage</a>
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-tags"></i>
+    </button>
+  </nav>
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{%url 'index'%}">
+          <i class="fas fa-fw fa-barcode"></i>
+          <span>Leitura de Materiais</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{%url 'dashboard'%}">
+          <i class="fas fa-fw fa-chart-pie"></i>
+          <span>Dashboard</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{%url 'tabela_itens'%}">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Itens em Estoque</span></a>
+      </li>
+    </ul>
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <asdf href="#">Dashboard</asdf>
+          </li>
+        </ol>
+          
+        <div>
+                <div class="row">             
+                <div class="container">
+                  <div class="container dashboard">
+                    <div class="col-4 dashboard-box" id="dashboard-lastdays">
+                        <h4>Total de Itens</h4>
+                        <span>{{total}}</span>
+                    </div>
+                    <div class="col-4 dashboard-box" id="dashboard-done">
+                        <h4>Valor total em estoque</h4>
+                        <span>{{totavalor}}</span>
+                    </div>
+                    <div class="col-4 dashboard-box" id="dashboard-doing">
+                        <h4>Saidas nos ultimos 7 dias</h4>
+                        <span>{{saida7d}}</span>
+                    </div>
+                      <div class="col-4 dashboard-box" id="dashboard-doing">
+                        <h4>total de marcas</h4>
+                        <span>{{marcastotal}}</span>
+                    </div>
+                  </div>
+                </div>
+               
+             
+               
+                    <div id="container"></div>
+                    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+                    <script>
+                      Highcharts.chart('container', {{ chart|safe }});
+                    </script>
+        
+          
+            
+         
+          
+        </div>
+          
+          
+    </div>
+    
+  </div>
+  
+</div>
+
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  
+  <script src="static/js/chart-bar-demo.js"></script>
+
+</body>
+
+</html>
